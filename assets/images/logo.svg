@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" fill="none" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mv-gold-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#996F04" />
+      <stop offset="45%" stop-color="#C59B27" />
+      <stop offset="100%" stop-color="#E5B869" />
+    </linearGradient>
+    <filter id="mv-gold-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Vector Mark (M + V + Upward Exponential Growth Arrow) -->
+  <g transform="translate(6, 6)">
+    <!-- Base geometric shadow / blueprint line -->
+    <path d="M4 44 L16 10 L28 32 L40 10 L52 44" stroke="#E2E8F0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Outer Dynamic M Structure in Metallic Gold -->
+    <path d="M4 44 L16 10 L26 29" stroke="url(#mv-gold-grad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Sharp V Structure with Exponential Upward Growth Trajectory -->
+    <path d="M26 29 L36 48 L54 6" stroke="url(#mv-gold-grad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" filter="url(#mv-gold-glow)" />
+    
+    <!-- Growth Arrow Tip in Radiant Champagne -->
+    <polygon points="54,4 58,16 46,12" fill="#B8860B" />
+    
+    <!-- Accent pulse node -->
+    <circle cx="26" cy="29" r="3.5" fill="#0F172A" />
+  </g>
+
+  <!-- Wordmark: MARKETING VALA in Executive Clean Typography -->
+  <g transform="translate(76, 22)">
+    <!-- Brand Name (Crisp Slate Onyx + Radiant Gold) -->
+    <text x="0" y="14" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="800" letter-spacing="1.5" fill="#0F172A">
+      MARKETING <tspan fill="url(#mv-gold-grad)">VALA</tspan>
+    </text>
+    
+    <!-- Subtitle / Tagline -->
+    <text x="1" y="29" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="600" letter-spacing="2.8" fill="#64748B">
+      GROWTH • CODE • AUTOMATION
+    </text>
+  </g>
+</svg>
