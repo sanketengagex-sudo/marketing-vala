@@ -63,6 +63,8 @@ export const CONFIG = {
   contact: {
     phoneFormatted: "+91 9730032332",
     phoneRaw: "919730032332",
+    phone2Formatted: "+91 9423232281",
+    phone2Raw: "919423232281",
     email: "marketingvala.in@gmail.com",
     whatsappUrl: "https://wa.me/919730032332",
     mailtoUrl: "mailto:marketingvala.in@gmail.com",

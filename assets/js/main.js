@@ -79,11 +79,17 @@ function initSocialAndContactLinks() {
   document.querySelectorAll('[data-contact-phone]').forEach(el => {
     el.textContent = CONFIG.contact.phoneFormatted;
   });
+  document.querySelectorAll('[data-contact-phone2]').forEach(el => {
+    el.textContent = CONFIG.contact.phone2Formatted;
+  });
   document.querySelectorAll('[data-contact-email]').forEach(el => {
     el.textContent = CONFIG.contact.email;
   });
   document.querySelectorAll('a[data-contact-phone-link]').forEach(el => {
     el.href = `tel:+${CONFIG.contact.phoneRaw}`;
+  });
+  document.querySelectorAll('a[data-contact-phone2-link]').forEach(el => {
+    el.href = `tel:+${CONFIG.contact.phone2Raw}`;
   });
   document.querySelectorAll('a[data-contact-whatsapp-link]').forEach(el => {
     el.href = CONFIG.contact.whatsappUrl;
