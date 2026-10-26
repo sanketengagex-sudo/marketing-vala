@@ -4,9 +4,19 @@ echo ========================================================
 echo  Marketing Vala - Push to GitHub
 echo ========================================================
 echo.
+echo Staging changes...
+git add .
+git diff --cached --quiet
+if %ERRORLEVEL% neq 0 (
+    echo Committing latest website updates...
+    git commit -m "Update website assets and content (%date%)"
+) else (
+    echo Working tree clean, proceeding to push...
+)
+echo.
 echo Pushing code to https://github.com/sanketengagex-sudo/marketing-vala.git ...
 echo.
-git push -u origin main
+git push origin main
 echo.
 if %ERRORLEVEL% equ 0 (
     echo ========================================================
