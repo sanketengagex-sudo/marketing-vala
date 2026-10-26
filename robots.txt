@@ -1,0 +1,11 @@
+# Robots.txt for Marketing Vala (https://marketingvala.in)
+User-agent: *
+Allow: /
+Disallow: /google-apps-script/
+Disallow: /*.bat$
+
+# Host
+Host: https://marketingvala.in
+
+# Sitemaps
+Sitemap: https://marketingvala.in/sitemap.xml

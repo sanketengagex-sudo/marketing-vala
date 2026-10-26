@@ -12,13 +12,105 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeader();
   initMobileDrawer();
   initSocialAndContactLinks();
+  initStatsCounters();
   initServicesSection();
   initPortfolioSection();
   initScopeEstimator();
   initModals();
+  initFaqAccordion();
   initScrollAnimations();
   initEnquiryForm();
 });
+
+/**
+ * FAQ Accordion Handler (Accessible & Animated)
+ */
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  if (!faqItems.length) return;
+
+  faqItems.forEach(item => {
+    const btn = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    if (!btn || !answer) return;
+
+    btn.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+
+      faqItems.forEach(other => {
+        if (other !== item && other.classList.contains('active')) {
+          other.classList.remove('active');
+          const otherBtn = other.querySelector('.faq-question');
+          const otherAns = other.querySelector('.faq-answer');
+          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          if (otherAns) otherAns.style.maxHeight = null;
+        }
+      });
+
+      if (isActive) {
+        item.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = null;
+      } else {
+        item.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+}
+
+/**
+ * Animated Proof Metrics Counters
+ */
+function initStatsCounters() {
+  const statCards = document.querySelectorAll('.stat-counter-card[data-target]');
+  if (!statCards.length) return;
+
+  let animated = false;
+  const animate = () => {
+    statCards.forEach(card => {
+      const target = parseFloat(card.dataset.target);
+      const prefix = card.dataset.prefix || '';
+      const suffix = card.dataset.suffix || '';
+      const isDecimal = target % 1 !== 0;
+      const numEl = card.querySelector('.stat-num');
+      if (!numEl) return;
+
+      const duration = 1400;
+      const startTime = performance.now();
+
+      const step = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = target * eased;
+        numEl.textContent = `${prefix}${isDecimal ? current.toFixed(1) : Math.floor(current)}${suffix}`;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          numEl.textContent = `${prefix}${target}${suffix}`;
+        }
+      };
+      requestAnimationFrame(step);
+    });
+  };
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !animated) {
+          animated = true;
+          animate();
+        }
+      });
+    }, { threshold: 0.2 });
+
+    const firstCard = statCards[0];
+    if (firstCard) observer.observe(firstCard);
+  } else {
+    animate();
+  }
+}
 
 /**
  * Header sticky styling and scroll effects

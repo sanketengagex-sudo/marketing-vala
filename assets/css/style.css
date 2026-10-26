@@ -1774,3 +1774,372 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
   border-color: var(--gold-primary);
 }
+
+/* -------------------------------------------------------------------
+   12. PROOF STATS COUNTER STRIP (PIXATED & SOCIAL BEAT INSPIRED)
+   ------------------------------------------------------------------- */
+.proof-strip-section {
+  padding-block: 40px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  z-index: 2;
+}
+
+.stats-counter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.stat-counter-card {
+  background: var(--bg-surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-counter-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.stat-counter-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-border);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+.stat-counter-card:hover::before {
+  opacity: 1;
+}
+
+.stat-num {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.2vw, 3rem);
+  font-weight: 800;
+  color: var(--gold-primary);
+  line-height: 1.1;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.stat-subtext {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* -------------------------------------------------------------------
+   13. PARTNER & CERTIFICATION BADGES (TECHMAGNATE & SOCIAL BEAT)
+   ------------------------------------------------------------------- */
+.partner-badges-bar {
+  padding-block: 28px;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.partner-badges-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.partner-badge-lead {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.partner-badges-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+}
+
+.partner-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.partner-badge-pill:hover {
+  border-color: var(--gold-border);
+  color: var(--gold-primary);
+  background: #FFFFFF;
+}
+
+.partner-badge-pill svg {
+  color: var(--gold-primary);
+  flex-shrink: 0;
+}
+
+/* -------------------------------------------------------------------
+   14. AGENCY COMPARISON MATRIX (PIXATED & TOGGLEHEAD INSPIRED)
+   ------------------------------------------------------------------- */
+.comparison-section {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.comparison-table-wrap {
+  margin-top: 40px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  overflow-x: auto;
+  box-shadow: var(--shadow-md);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+  text-align: left;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.92rem;
+}
+
+.comparison-table th {
+  background: #F8FAFC;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.comparison-table th.col-mv,
+.comparison-table td.col-mv {
+  background: rgba(184, 134, 11, 0.04);
+  border-left: 2px solid var(--gold-primary);
+  border-right: 2px solid var(--gold-primary);
+}
+
+.comparison-table th.col-mv {
+  border-top: 3px solid var(--gold-primary);
+  color: var(--gold-primary);
+  position: relative;
+}
+
+.comparison-pill-tag {
+  display: inline-block;
+  background: var(--gold-primary);
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.comparison-feature-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.comparison-feature-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.badge-yes {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #059669;
+  font-weight: 700;
+}
+
+.badge-no {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #DC2626;
+  font-weight: 600;
+}
+
+.badge-partial {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #D97706;
+  font-weight: 600;
+}
+
+/* -------------------------------------------------------------------
+   15. FAQ ACCORDION HUB (TECHMAGNATE HIGH-INTENT SEO ENGINE)
+   ------------------------------------------------------------------- */
+.faq-section {
+  position: relative;
+}
+
+.faq-accordion {
+  max-width: 920px;
+  margin: 48px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-item:hover {
+  border-color: var(--gold-border);
+}
+
+.faq-item.active {
+  border-color: var(--gold-primary);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 26px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  gap: 16px;
+  transition: color var(--transition-fast);
+}
+
+.faq-question:hover {
+  color: var(--gold-primary);
+}
+
+.faq-item.active .faq-question {
+  color: var(--gold-primary);
+}
+
+.faq-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: all var(--transition-normal);
+}
+
+.faq-item.active .faq-icon {
+  background: var(--gold-primary);
+  color: #FFFFFF;
+  border-color: var(--gold-primary);
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-answer-inner {
+  padding: 0 26px 24px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  border-top: 1px dashed var(--border-subtle);
+  padding-top: 16px;
+}
+
+.faq-answer-inner p {
+  margin-bottom: 12px;
+}
+
+.faq-answer-inner p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-answer-inner ul {
+  padding-left: 20px;
+  margin-block: 8px 12px;
+}
+
+.faq-answer-inner li {
+  margin-bottom: 6px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .stats-counter-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .stats-counter-grid {
+    grid-template-columns: 1fr;
+  }
+  .partner-badges-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .faq-question {
+    padding: 18px 20px;
+    font-size: 0.98rem;
+  }
+  .faq-answer-inner {
+    padding: 0 20px 20px;
+  }
+}
+
