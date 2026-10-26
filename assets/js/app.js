@@ -328,6 +328,7 @@
     initSocialAndContactLinks();
     initStatsCounters();
     initServicesSection();
+    initPackagesSection();
     initPortfolioSection();
     initScopeEstimator();
     initModals();
@@ -335,6 +336,49 @@
     initScrollAnimations();
     initEnquiryForm();
   });
+
+  /* -------------------------------------------------------------------
+     Packages & Pricing Plans Handler
+     ------------------------------------------------------------------- */
+  function initPackagesSection() {
+    const toggleBtns = document.querySelectorAll('.pricing-toggle-tab');
+    const priceEls = document.querySelectorAll('.package-price[data-monthly]');
+    const periodEls = document.querySelectorAll('.package-period');
+
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        toggleBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        const billing = btn.dataset.billing;
+        priceEls.forEach(priceEl => {
+          const newPrice = billing === 'quarterly' ? priceEl.dataset.quarterly : priceEl.dataset.monthly;
+          if (newPrice) {
+            priceEl.textContent = newPrice;
+          }
+        });
+
+        periodEls.forEach(periodEl => {
+          periodEl.textContent = billing === 'quarterly' ? '/ mo (quarterly)' : '/ month';
+        });
+      });
+    });
+
+    document.querySelectorAll('[data-action="select-package"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const packageName = btn.dataset.packageName || 'Growth Accelerator Package';
+        focusEnquiryWithService(packageName);
+        const messageField = document.getElementById('form-message');
+        if (messageField && !messageField.value) {
+          messageField.value = `Hello Marketing Vala team! I am interested in getting started with the ${packageName}. Please share onboarding details and next steps.`;
+        }
+      });
+    });
+  }
 
   /* -------------------------------------------------------------------
      FAQ Accordion Handler (Accessible & Animated)
